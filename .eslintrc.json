@@ -1,6 +1,13 @@
 {
-  "extends": ["airbnb", "prettier", "next/core-web-vitals"],
-  "plugins": ["prettier"],
+  "extends": [
+    "airbnb",
+    "next",
+    "prettier",
+    "next/core-web-vitals"
+  ],
+  "plugins": [
+    "prettier"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "spaced-comment": "off",
@@ -12,7 +19,14 @@
     "no-param-reassign": "off",
     "no-return-await": "off",
     "no-underscore-dangle": "off",
-    "comma-dangle": [2, "never"],
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/button-has-type": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "comma-dangle": [
+      2,
+      "never"
+    ],
     "class-methods-use-this": "off",
     "prefer-destructuring": [
       "error",
@@ -30,7 +44,12 @@
     "react/jsx-filename-extension": [
       2,
       {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     ]
   }

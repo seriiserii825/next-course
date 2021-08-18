@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useRouter } from "next/router";
 import { getEventById } from "../../dumy-data";
 import EventSummary from "../../components/event-detail/event-summary";
@@ -11,12 +11,17 @@ const EventId = () => {
   const event = getEventById(id);
 
   if (!id) {
-    return <p>Not found...</p>
+    return <p>Not found...</p>;
   }
   return (
     <div>
-      <EventSummary title={event.title}/>
-      <EventLogistics date={event.date} address={event.location} image={event.image} imageAlt={event.title}/>
+      <EventSummary title={event.title} />
+      <EventLogistics
+        date={event.date}
+        address={event.location}
+        image={event.image}
+        imageAlt={event.title}
+      />
       <EventContent>
         <p className="description">{event.description}</p>
       </EventContent>

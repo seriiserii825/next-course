@@ -1,16 +1,16 @@
-import '../styles/globals.css'
-import { Fragment } from "react";
+import "../styles/globals.css";
+import React from "react";
 import Header from "../layouts/Header";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Fragment>
-      <Header/>
+    <>
+      <Header />
       <div className="main">
         <Component {...pageProps} />
       </div>
-    </Fragment>
-  )
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
