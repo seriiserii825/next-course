@@ -10,6 +10,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "axios": "^0.21.1",
         "immer": "^9.0.5",
         "next": "11.1.0",
         "react": "17.0.2",
