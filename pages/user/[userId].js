@@ -4,6 +4,7 @@ export default function userId({ user }) {
   return (
     <div className="center">
       <h2>{user.name}</h2>
+      <p>{user.number}</p>
       <p>{user.email}</p>
       <p>{user.phone}</p>
       <a rel="noreferrer" target="_blank" href={user.website}>
@@ -13,22 +14,13 @@ export default function userId({ user }) {
   );
 }
 
-export async function getStaticPaths() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users = await res.json();
-
-  const paths = users.map((user) => ({
-    params: { userId: user.id.toString() }
-  }));
-
-  return { paths, fallback: false };
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
+  const userParamsId = params.userId;
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${params.userId}`
+    `https://jsonplaceholder.typicode.com/users/${userParamsId}`
   );
   const user = await res.json();
+  user.number = Math.random().toString(36).substr(2, 7);
 
   return { props: { user } };
 }
