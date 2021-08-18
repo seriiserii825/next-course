@@ -28,6 +28,7 @@ function EventsSearch() {
     e.preventDefault();
     router.push(`/events/${state.year}/${state.month}`);
   }
+  console.log(state);
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
