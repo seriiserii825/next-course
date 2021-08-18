@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./events-searc.module.css";
+import classes from "./events-search.module.css";
 import Button from "../../components/Button/Button";
 import { useImmer } from "use-immer";
 import { useRouter } from "next/router";
@@ -48,7 +48,7 @@ function EventsSearch() {
             <option value="4"> April </option> <option value="5"> May </option>{" "}
             <option value="6"> June </option> <option value="7"> July </option>{" "}
             <option value="8"> August </option>{" "}
-            <option value="9"> Septemer </option>{" "}
+            <option value="9"> September </option>{" "}
             <option value="10"> October </option>{" "}
             <option value="11"> November </option>{" "}
             <option value="12"> December </option>{" "}
