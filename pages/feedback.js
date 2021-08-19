@@ -18,7 +18,7 @@ function Feedback({ feedback }) {
 
 export default Feedback;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const filePath = getFilePath();
   const data = getFileData(filePath);
   return {
