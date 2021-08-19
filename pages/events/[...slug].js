@@ -1,33 +1,49 @@
 import React from "react";
-import { useRouter } from "next/router";
-import { getFilteredEvents } from "../../dumy-data";
 import EventList from "../../components/events/EventList";
+import { getFilteredEvents } from "../../helpers/get-events";
 
-const Slug = () => {
-  const router = useRouter();
-  const query = router.query.slug;
-
-  if (!query) {
-    return <p>Loading...</p>;
+const Slug = ({ events }) => {
+  if (!events) {
+    return <h2>Some error</h2>;
   }
-  const year = +query[0];
-  const month = +query[1];
-
-  if (Number.isNaN(year) || Number.isNaN(month)) {
-    return <h2 className="center">Invalid filter...</h2>;
+  if (events.length === 0) {
+    return <h2>Not found</h2>;
   }
-
-  const events = getFilteredEvents({ year, month });
 
   return (
     <>
-      {events.length ? (
-        <EventList items={events} />
-      ) : (
-        <h2 className="center">No events founded...</h2>
-      )}
+      <EventList items={events} />
     </>
   );
 };
 
 export default Slug;
+
+export async function getServerSideProps(context) {
+  const year = Number(context.params.slug[0]);
+  const month = Number(context.params.slug[1]);
+  try {
+    if (!Number.isNaN(year) && !Number.isNaN(month)) {
+      const filterdEvents = await getFilteredEvents({ year, month });
+
+      return {
+        props: {
+          events: filterdEvents
+        }
+      };
+    } else {
+      return {
+        props: {
+          events: []
+        }
+      };
+    }
+  } catch (e) {
+    console.log(e.message, "e.message");
+    return {
+      props: {
+        sum: "sum"
+      }
+    };
+  }
+}

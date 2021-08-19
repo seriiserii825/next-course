@@ -1,35 +1,41 @@
 {
-    "name": "next-course",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "NODE_OPTIONS='--inspect' next dev",
-        "predev": "fuser -k 3000/tcp && echo 'Terminated' || echo 'Nothing was running on the 3000'",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "axios": "^0.21.1",
-        "immer": "^9.0.5",
-        "next": "11.1.0",
-        "react": "17.0.2",
-        "react-dom": "17.0.2",
-        "react-immer": "^1.5.3",
-        "sharp": "^0.29.0",
-        "use-immer": "^0.6.0"
-    },
-    "devDependencies": {
-        "eslint": "^7.32.0",
-        "eslint-config-airbnb": "^18.2.1",
-        "eslint-config-next": "11.1.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-import": "^2.24.0",
-        "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-prettier": "^3.4.0",
-        "eslint-plugin-react": "^7.24.0",
-        "eslint-plugin-vue": "^7.16.0",
-        "prettier": "^2.3.2"
-    }
+  "name": "next-course",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "predev": "fuser -k 3000/tcp && echo 'Terminated' || echo 'Nothing was running on the 3000'",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "immer": "^9.0.5",
+    "next": "11.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-immer": "^1.5.3",
+    "sharp": "^0.29.0",
+    "swr": "^0.5.6",
+    "use-immer": "^0.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-next": "11.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-vue": "^7.16.0",
+    "prettier": "^2.3.2"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  }
 }

@@ -1,28 +1,13 @@
-import axios from "axios";
-import Link from "next/link";
 import styles from "../styles/Home.module.css";
-import { getFeaturedEvents } from "../dumy-data";
 import EventList from "../components/events/EventList";
+import getEvents from "../helpers/get-events";
 
-export default function Home({ users }) {
-  const items = getFeaturedEvents();
-
+export default function Home({ items }) {
+  if (!items) {
+    return <h2>Loading...</h2>;
+  }
   return (
     <div className={styles.container}>
-      <h1 className="center" style={{ textDecoration: "underline" }}>
-        From jsonplaceholder
-      </h1>
-      <ul className="list">
-        {users.length &&
-          users.map(({ id, name }) => {
-            const url = `/user/${id}`;
-            return (
-              <li key={id}>
-                <Link href={url}>{name}</Link>
-              </li>
-            );
-          })}
-      </ul>
       <EventList items={items} />
     </div>
   );
@@ -30,19 +15,15 @@ export default function Home({ users }) {
 
 export async function getStaticProps() {
   try {
-    const { data } = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
+    const events = await getEvents();
+    const featuredEvents = events.data.filter((event) => event.isFeatured);
     return {
       props: {
-        users: data
+        items: featuredEvents
       }
     };
   } catch (error) {
     return {
-      props: {
-        users: []
-      },
       notFound: true
     };
   }
