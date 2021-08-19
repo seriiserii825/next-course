@@ -1,9 +1,9 @@
 import Head from "next/head";
+import { useImmer } from "use-immer";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
 import EventList from "../components/events/EventList";
 import getEvents from "../helpers/get-events";
-import { useImmer } from "use-immer";
 
 export default function Home({ items }) {
   const [state, setState] = useImmer({
