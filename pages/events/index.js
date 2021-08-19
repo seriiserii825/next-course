@@ -1,12 +1,15 @@
 import React from "react";
+import Head from "next/head";
 import EventList from "../../components/events/EventList";
-// import { getAllEvents } from "../../data/dumy-data";
 import EventsSearch from "./EventsSearch";
 import getEvents from "../../helpers/get-events";
 
 function AllEvents({ items }) {
   return (
     <>
+      <Head>
+        <title>Events</title>
+      </Head>
       <EventsSearch />
       <EventList items={items} />
     </>

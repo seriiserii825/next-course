@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { getEventById } from "../../data/dumy-data";
 import EventSummary from "../../components/event-detail/event-summary";
 import EventLogistics from "../../components/event-detail/event-logistics";
@@ -11,6 +12,9 @@ const EventId = ({ event }) => {
 
   return (
     <div>
+      <Head>
+        <title>{event.title} | Events site</title>
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}
@@ -30,7 +34,6 @@ export default EventId;
 export async function getServerSideProps(context) {
   const eventId = context.params.eventId;
   const event = await getEventById(eventId);
-  console.log(event, "event");
   return {
     props: {
       event: event

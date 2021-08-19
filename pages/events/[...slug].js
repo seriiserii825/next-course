@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import EventList from "../../components/events/EventList";
 import { getFilteredEvents } from "../../helpers/get-events";
 
@@ -12,6 +13,9 @@ const Slug = ({ events }) => {
 
   return (
     <>
+      <Head>
+        <title>Founded events | Events</title>
+      </Head>
       <EventList items={events} />
     </>
   );
@@ -31,15 +35,8 @@ export async function getServerSideProps(context) {
           events: filterdEvents
         }
       };
-    } else {
-      return {
-        props: {
-          events: []
-        }
-      };
     }
   } catch (e) {
-    console.log(e.message, "e.message");
     return {
       props: {
         sum: "sum"
