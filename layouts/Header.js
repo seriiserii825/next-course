@@ -16,6 +16,9 @@ function Header() {
           <li>
             <Link href="/feedback">Feedbacks list</Link>
           </li>
+          <li>
+            <Link href="/add-feedback">Add feedback</Link>
+          </li>
         </ul>
       </nav>
     </header>

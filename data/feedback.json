@@ -1,1 +1,12 @@
-[{"user":"serii","email":"seriiburduja@gmail.com"},{"user":"nixon","email":"nixon@mail.ru"},{"user":"jonny","email":"jony@mail.ru"},{"user":"nixon","email":"ome@mail.ru"}]
+[
+  {
+    "id": 1,
+    "user": "serii",
+    "email": "seriiburduja@gmail.com"
+  },
+  {
+    "id": 1629400030396,
+    "user": "serii",
+    "email": "seriiburduja@gmail.com"
+  }
+]

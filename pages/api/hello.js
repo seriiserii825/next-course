@@ -5,13 +5,13 @@ import { getFileData, getFilePath } from "../../helpers/feedback";
 
 export default function handler(req, res) {
   if (req.method === "POST") {
-    const { user, email } = req.body;
+    const { id, user, email } = req.body;
     const filePath = getFilePath();
     const data = getFileData(filePath);
-    data.push({ user: user, email: email });
+    data.push({ id: id, user: user, email: email });
     fs.writeFileSync(filePath, JSON.stringify(data));
 
-    res.status(201).json({ body: { user: user, email: email } });
+    res.status(201).json({ body: { id: id, user: user, email: email } });
   } else if (req.method === "GET") {
     const filePath = getFilePath();
     const data = getFileData(filePath);
