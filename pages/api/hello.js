@@ -15,6 +15,6 @@ export default function handler(req, res) {
   } else if (req.method === "GET") {
     const filePath = getFilePath();
     const data = getFileData(filePath);
-    res.status(200).json({ data: data });
+    return res.status(200).json({ data: data });
   }
 }

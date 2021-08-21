@@ -2,7 +2,6 @@ import React from "react";
 import { getFileData, getFilePath } from "../helpers/feedback";
 
 function Feedback({ feedback }) {
-  console.log(feedback, "feedback");
   return (
     <ul>
       {feedback &&
